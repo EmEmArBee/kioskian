@@ -12,13 +12,15 @@ Stack: **Xorg + Openbox** (nessun desktop environment) + **Chromium** o **Firefo
 2. Accedi come admin ed esegui:
 
    ```bash
-   wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
-   - or - 
-    wget -O kiosk-setup.sh https://raw.githubusercontent.com/EmEmArBee/kioskian/refs/heads/main/kiosk-setup.sh
-   sudo bash kiosk-setup.sh
+wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
+- or - 
+wget -O kiosk-setup.sh https://raw.githubusercontent.com/EmEmArBee/kioskian/refs/heads/main/kiosk-setup.sh
+sudo bash kiosk-setup.sh
    ```
 
-   Senza `sudo` installato: `su -` e poi `bash kiosk-setup.sh`. Scarica sempre il file e poi eseguilo (non `curl | bash`).
+   Senza `sudo` installato: `su -` (con il trattino) e poi `bash kiosk-setup.sh`. Scarica sempre il file e poi eseguilo (non `curl | bash`).
+
+   **Importante:** l'utente kiosk deve essere un utente **dedicato**, diverso dall'amministratore creato durante l'installazione di Debian. Lo script lo trasforma in un account ospite senza password; se scegli un nome già esistente te lo segnala e chiede conferma.
 3. Rispondi alle domande, controlla il riepilogo, conferma. Alla fine la macchina si riavvia da sola (se hai scelto di sì) e parte il kiosk.
 
 Lo script si può rilanciare: sovrascrive i propri file. Il log è in `/var/log/kiosk-setup.log`.
