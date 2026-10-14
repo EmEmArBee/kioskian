@@ -12,6 +12,9 @@
 #
 set -Eeuo pipefail
 
+# "su" without the dash keeps the user's PATH, which lacks /usr/sbin (usermod, locale-gen, ...)
+export PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+
 SCRIPT_VERSION="2.0"
 LOG_FILE="/var/log/kiosk-setup.log"
 CONF_DIR="/etc/kiosk"
@@ -130,6 +133,17 @@ collect_answers() {
         if ! valid_username "$KIOSK_USER"; then echo "Invalid user name." >/dev/tty; continue; fi
         if [ "$KIOSK_USER" = "root" ] || [ "$KIOSK_USER" = "${SUDO_USER:-}" ]; then
             echo "Pick a dedicated user, not root or your admin account." >/dev/tty; continue
+        fi
+        if id "$KIOSK_USER" >/dev/null 2>&1; then
+            if [ "$(id -u "$KIOSK_USER")" -lt 1000 ]; then
+                echo "That is a system account: pick another name." >/dev/tty; continue
+            fi
+            {
+                echo "User '$KIOSK_USER' already exists. It will be reconfigured as the passwordless guest"
+                echo "account (password locked, sudo removed). If it is the administrator account you"
+                echo "created during the Debian installation, answer N and pick another name."
+            } >/dev/tty
+            ask_yn "Reconfigure '$KIOSK_USER' as the kiosk guest account?" N || continue
         fi
         break
     done
