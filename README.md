@@ -12,10 +12,10 @@ Stack: **Xorg + Openbox** (nessun desktop environment) + **Chromium** o **Firefo
 2. Accedi come admin ed esegui:
 
    ```bash
-wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
-- or - 
-wget -O kiosk-setup.sh https://raw.githubusercontent.com/EmEmArBee/kioskian/refs/heads/main/kiosk-setup.sh
-sudo bash kiosk-setup.sh
+   wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
+   - or - 
+   wget -O kiosk-setup.sh https://raw.githubusercontent.com/EmEmArBee/kioskian/refs/heads/main/kiosk-setup.sh
+   sudo bash kiosk-setup.sh
    ```
 
    Senza `sudo` installato: `su -` (con il trattino) e poi `bash kiosk-setup.sh`. Scarica sempre il file e poi eseguilo (non `curl | bash`).
