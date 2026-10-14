@@ -57,9 +57,6 @@ Lo script si può rilanciare: sovrascrive i propri file. Il log è in `/var/log/
 - **Rete** con NetworkManager: Ethernet DHCP e Wi-Fi.
 - **Firmware non-free** abilitati per massimizzare la compatibilità hardware.
 
-### Correzione importante rispetto ai vecchi script
-
-Nei tre script originali la regola degli aggiornamenti usava `codename=${distro_codename}`, ma dal 2021 il repository di sicurezza di Debian ha codename `<release>-security`: **la regola non trovava nulla e non installava mai aggiornamenti**. Ora usa `codename=${distro_codename}-security`.
 
 ## Gestione remota (SSH)
 
@@ -137,6 +134,6 @@ Se non l'hai impostato durante l'installazione: `sudo nmtui`, oppure `sudo nmcli
 
 - Il reset della sessione richiede circa 10-20 secondi di schermo nero prima che riparta il browser.
 - Chi guarda un video senza toccare mouse o tastiera per N minuti viene considerato inattivo e la sessione viene resettata.
-- Non è un kiosk "blindato" (nessun `--kiosk`, come da tua scelta): l'ospite può aprire schede libere. Il file manager non è confinato e mostra ciò che i permessi di Linux consentono all'utente kiosk, che non ha privilegi.
+- Non è un kiosk "blindato" (nessun `--kiosk`): l'ospite può aprire schede libere. Il file manager non è confinato e mostra ciò che i permessi di Linux consentono all'utente kiosk, che non ha privilegi.
 - I criteri di Chromium bloccano solo DevTools, impostazioni e `view-source`; `file://` non è bloccato.
 - Chromium parte **senza** `--no-sandbox` (usava un flag poco sicuro nei vecchi script): se su qualche macchina non partisse, controlla `sysctl kernel.unprivileged_userns_clone` prima di forzarlo.
