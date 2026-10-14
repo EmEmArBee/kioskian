@@ -12,7 +12,7 @@ Stack: **Xorg + Openbox** (nessun desktop environment) + **Chromium** o **Firefo
 2. Accedi come admin ed esegui:
 
    ```bash
-   wget -O kiosk-setup.sh https://raw.githubusercontent.com/<tuo-utente>/<repo>/main/kiosk-setup.sh
+   wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
    sudo bash kiosk-setup.sh
    ```
 
