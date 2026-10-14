@@ -13,6 +13,8 @@ Stack: **Xorg + Openbox** (nessun desktop environment) + **Chromium** o **Firefo
 
    ```bash
    wget -O kiosk-setup.sh https://github.com/EmEmArBee/kioskian/blob/main/kiosk-setup.sh
+   - or - 
+    wget -O kiosk-setup.sh https://raw.githubusercontent.com/EmEmArBee/kioskian/refs/heads/main/kiosk-setup.sh
    sudo bash kiosk-setup.sh
    ```
 
